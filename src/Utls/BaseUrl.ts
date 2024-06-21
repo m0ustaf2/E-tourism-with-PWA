@@ -1,0 +1,1 @@
+export const baseUrl =`https://e-tourism-backend.vercel.app/`

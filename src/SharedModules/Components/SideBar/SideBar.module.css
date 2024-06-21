@@ -1,0 +1,19 @@
+.sidebar-container .ps-sidebar-container{
+    background-color: #1f263E;
+    color: #fff;
+    border-top-right-radius:50px;
+}
+.side{
+    border-top-right-radius:60px;
+}
+.sidebar-container .ps-sidebar-root{
+border: none;
+height: 100vh;
+}
+
+.sidebar-container .ps-sidebar-container .ps-menu-button:hover{
+    background-color: #009247;
+}
+.side-bg{
+    background-color: #1f263E;
+}

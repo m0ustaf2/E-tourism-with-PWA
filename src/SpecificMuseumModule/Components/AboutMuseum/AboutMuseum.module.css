@@ -1,0 +1,22 @@
+.bgMuseum{
+    background-image: url("https://images.unsplash.com/photo-1517736996303-4eec4a66bb17");
+    background-position: center center;
+    background-size: cover;
+}
+
+
+.del:hover {
+    color: #F44336;
+    transform: rotate(50deg);
+    cursor: pointer;
+  }
+  
+  .edit:hover {
+    color: #07f542;
+    transform: rotate(-50deg);
+    cursor: pointer;
+  }
+  
+  .edit,.del {
+    transition: all 0.6s;
+  }
