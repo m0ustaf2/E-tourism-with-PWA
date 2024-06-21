@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import ChangePassword from "../../../AuthModule/Components/ChangePassword/ChangePassword";
 import { logOut } from "../../../Redux/AuthSlice/AuthSlice";
 import ammon from "../../../assets/Amoon.png";
+import { MdFeaturedPlayList } from "react-icons/md";
 
 export default function SideBar() {
   const { t, i18n } = useTranslation();
@@ -98,6 +99,17 @@ export default function SideBar() {
                 component={<Link to="/home/booking" />}
               >
                 {t("Booking")}
+              </MenuItem>
+            ) : (
+              ""
+            )}
+            {data?.role == "User" ? (
+              <MenuItem
+
+                icon={<MdFeaturedPlayList className="text-2xl" />}
+                component={<Link to="/home/booking" />}
+              >
+                {t("My Tickets")}
               </MenuItem>
             ) : (
               ""
