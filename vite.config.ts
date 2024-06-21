@@ -16,7 +16,7 @@ export default defineConfig({
   includeAssets: [
       "**/*",
   ],
-        manifest:    {
+        manifest:     {
           "name": "Egypt Here: An E-Tourism Web app",
           "short_name": "Egypt Here",
           "description": "Our E-Tourism website serves as a dedicated online hub, offering extensive travel insights and services tailored to tourists exploring Egypt",
@@ -503,12 +503,8 @@ export default defineConfig({
               "sizes": "512x512",
               "type": "image/png",
               "purpose": "maskable"
-            },
-            {
-              "src": "Square44x44Logo.altform-unplated_targetsize-256.png",
-              "sizes": "256x256",
-              "type": "image/png"
             }
+        
           ],
           "id": "egy",
           "display_override": [

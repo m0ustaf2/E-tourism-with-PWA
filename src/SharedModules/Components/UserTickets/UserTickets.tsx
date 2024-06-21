@@ -48,8 +48,8 @@ export default function UserTickets() {
   return (
     <>
       <div>
-        {userTickets?.length > 0 ? (
-          !isLoading ? (
+        {!isLoading? (
+          userTickets.length>0 ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 my-3 grid-cols-1 pr-2">
               {userTickets?.map((ticket: any, idx: number) => (
                 <div key={idx}>
@@ -61,12 +61,20 @@ export default function UserTickets() {
               ))}
             </div>
           ) : (
+            <div className="w-full flex justify-center items-center">
+            <div className="w-[40%]">
             <NoData />
+
+         
+            </div>
+          </div>
+
           )
         ) : (
           <div className="w-full flex justify-center items-center">
             <div className="w-[40%]">
-              <Loading />
+            <Loading />
+         
             </div>
           </div>
         )}
