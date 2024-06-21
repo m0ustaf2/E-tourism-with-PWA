@@ -30,6 +30,7 @@ import SpecificMuseum from "./SpecificMuseumModule/SpecificMuseum";
 import { getAllCities } from "./Utls/getData";
 import ValidateTicket from "./ValidateTicket/ValidateTicket";
 import InstallBtn from "./SharedModules/Components/InstallBtn/InstallBtn";
+import UserTickets from "./SharedModules/Components/UserTickets/UserTickets";
 
 function App() {
  
@@ -109,6 +110,7 @@ function App() {
         },
         { path: "booking", element: <Booking /> },
         { path: "profile", element: <Profile /> },
+        { path: "user-tickets", element: <UserTickets/> },
       ],
     },
     {

@@ -107,7 +107,7 @@ export default function SideBar() {
               <MenuItem
 
                 icon={<MdFeaturedPlayList className="text-2xl" />}
-                component={<Link to="/home/booking" />}
+                component={<Link to="/home/user-tickets"/>}
               >
                 {t("My Tickets")}
               </MenuItem>
