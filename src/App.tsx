@@ -29,8 +29,10 @@ import Profile from "./SharedModules/Components/Profile/Profile";
 import SpecificMuseum from "./SpecificMuseumModule/SpecificMuseum";
 import { getAllCities } from "./Utls/getData";
 import ValidateTicket from "./ValidateTicket/ValidateTicket";
+import InstallBtn from "./SharedModules/Components/InstallBtn/InstallBtn";
 
 function App() {
+ 
   const dispatch = useDispatch();
   
   useEffect(() => {
@@ -134,6 +136,9 @@ function App() {
 
   return (
     <>
+       <div className="fixed bottom-0 rounded-full p-4  right-0 z-50  ">
+       <InstallBtn/>
+        </div>
       <RouterProvider router={router} />
     </>
   );
