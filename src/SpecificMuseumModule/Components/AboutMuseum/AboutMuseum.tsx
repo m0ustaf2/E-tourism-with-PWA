@@ -187,7 +187,8 @@ export default function AboutMuseum() {
   const requestFordeletingReview =()=>{
     setIsLoading(true);
     axios.delete(`${baseUrl}city/${cityId}/destination/${destinationId}/review/${reviewId}`,headers).then((res)=>{
-      toast.success(res?.data?.success);
+      
+      toast.success(res?.data?.message);
       getReviews();
       setModalState("close");
       
@@ -404,14 +405,18 @@ export default function AboutMuseum() {
                               <p className="text-lg font-bold">{`${review?.createdBy?.firstName} ${review?.createdBy?.lastName}`}</p>
                             </div>
                             <div className="flex items center justify-center">
-                              {data?.id == review?.createdBy?._id ? (
+                              {data?.id == review?.createdBy?._id || data.role=="Admin" ? (
                                 <>
-                                  <button onClick={()=>{updateReview(review?.comment,String(review?._id))}}>
-                                    <FiEdit className="mx-2 text-yellow-400" />
-                                  </button>
+                                
                                   <button onClick={()=>{deleteReview(String(review?._id))}}>
                                     <RiDeleteBin6Line className="text-red-400" />
                                   </button>
+                                  {data?.id == review?.createdBy?._id?
+                                   <button onClick={()=>{updateReview(review?.comment,String(review?._id))}}>
+                                   <FiEdit className="mx-2 text-yellow-400" />
+                                 </button>:""
+                                  }
+                                  
                                 </>
                               ) : (
                                 ""
