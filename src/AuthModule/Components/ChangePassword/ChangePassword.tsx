@@ -8,10 +8,13 @@ import { ImSpinner9 } from "react-icons/im";
 import ErrorMessage from "../../../SharedModules/Components/ErrorMessage/ErrorMessage";
 import Passsword from "../../../SharedModules/Components/Password/Passsword";
 import { logOut } from "../../../Redux/AuthSlice/AuthSlice";
+import { useTranslation } from "react-i18next";
 interface prop{
   handleClose:()=>void;
 }
 export default function ChangePassword({handleClose}:prop) {
+  const { t, i18n } = useTranslation();
+
   const [isLoading, setIsLoading] = useState(false);
   const { headers } = useSelector((state: any) => state.authReducer);
 const dispatch=useDispatch()
@@ -40,7 +43,7 @@ const dispatch=useDispatch()
     <>
       <div className="flex items-center justify-center  md:px-5  rounded-t">
         <h3 className="text-lg font-semibold text-main">
-          Change Password
+        {t("Change Password")}
         </h3>
       </div>
       <form onSubmit={handleSubmit(onSubmit)} className="px-5 md:pb-2">
@@ -50,7 +53,7 @@ const dispatch=useDispatch()
               htmlFor="oldPassword"
               className="block mb-2 text-sm font-medium text-main "
             >
-              Old Password
+             {t("Old Password")}
             </label>
             <div className="flex items-center">
               <div className="flex-auto">
@@ -78,7 +81,7 @@ const dispatch=useDispatch()
               htmlFor="newPassword"
               className="block mb-2 text-sm font-medium text-main "
             >
-              New Password
+             {t("New Password")}
             </label>
             <div className="flex items-center">
               <div className="flex-auto">
@@ -106,7 +109,7 @@ const dispatch=useDispatch()
               htmlFor="cpassword"
               className="block mb-2 text-sm font-medium text-main "
             >
-              Confirm Password
+             {t("Confirm Password")}
             </label>
             <div className="flex items-center">
               <div className="flex-auto">
@@ -141,7 +144,7 @@ const dispatch=useDispatch()
           {isLoading == true ? (
             <ImSpinner9 className="animate-spin" />
           ) : (
-            <>Change Password</>
+            <>{t("Change Password")}</>
           )}
         </button>
       </form>

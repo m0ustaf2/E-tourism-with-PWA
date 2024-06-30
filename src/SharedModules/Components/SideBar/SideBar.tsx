@@ -116,7 +116,8 @@ export default function SideBar() {
             )}
 
             <MenuItem icon={<FaKey className="fs-4" />} onClick={handleShow}>
-              Change Password
+              
+              {t("Change Password")}
             </MenuItem>
 
             <MenuItem

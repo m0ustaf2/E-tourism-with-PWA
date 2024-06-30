@@ -14,7 +14,9 @@ import Webcam from "react-webcam";
 import BookingHeader from "../../../SharedModules/Components/BookingHeader/BookingHeader";
 import ErrorMessage from "../../../SharedModules/Components/ErrorMessage/ErrorMessage";
 import { baseUrl } from "../../../Utls/BaseUrl";
+import { useTranslation } from "react-i18next";
 export default function Booking() {
+  const { t, i18n } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const { headers } = useSelector((state: any) => state.authReducer);
   const [activeStep, setActiveStep] = useState<number>(0);
@@ -139,7 +141,7 @@ const {data}= useSelector((state:any)=>state.authReducer);
       {activeStep == 0 ? (
         <div className="px-5">
           <p className="text-xl md:text-4xl flex justify-center items-center gap-2">
-            Face Matching <MdVerified className="text-green-500" />
+           {t("Face Matching")} <MdVerified className="text-green-500" />
           </p>
           <div>
             {imageSrc ? (
@@ -160,7 +162,7 @@ const {data}= useSelector((state:any)=>state.authReducer);
                       "bg-main text-white px-5 py-2 mx-1  my-2 rounded-xl"
                     }
                   >
-                    Capture another one?
+                   {t("Capture another one")}?
                   </button>
                 </div>
                 <div className="flex items-center justify-center">
@@ -173,7 +175,7 @@ const {data}= useSelector((state:any)=>state.authReducer);
                     {isLoading == true ? (
                       <ImSpinner9 className="animate-spin" />
                     ) : (
-                      <>Send Photo</>
+                      <>{t("Send Photo")}</>
                     )}
                   </button>
                 </div>
@@ -194,7 +196,7 @@ const {data}= useSelector((state:any)=>state.authReducer);
                 </div>
                 <div className="flex items-center justify-center">
                   <p className="text-slate-500">
-                    Click capture photo button then click on the send button
+                   {t("Click capture photo button then click on the send button")}
                   </p>
                 </div>
                 <div className="flex justify-center items-center">
@@ -202,7 +204,7 @@ const {data}= useSelector((state:any)=>state.authReducer);
                     className="bg-main text-white px-5 py-2 mx-1  my-2 rounded-xl"
                     onClick={capturePhoto}
                   >
-                    Capture Photo
+                   {t("Capture Photo")}
                   </button>
                 </div>
               </>
@@ -235,7 +237,7 @@ const {data}= useSelector((state:any)=>state.authReducer);
                 className="text-main"
               >
                 <div className="flex items-center">
-                  <FaLocationDot className="text-red-700 text-xl" /> Location
+                  <FaLocationDot className="text-red-700 text-xl" /> {t("Location")}
                 </div>
               </a>
               <div className="openning-hours  flex items-center my-2">
@@ -243,16 +245,16 @@ const {data}= useSelector((state:any)=>state.authReducer);
                   <FaRegClock />
                 </div>
                 <div className="openning-right ml-5">
-                  <p className="text-main">Openning hours</p>
+                  <p className="text-main">{t("Opening Hours")}</p>
                   <div className="text-slate-400 text-sm">
-                    <div>All days</div>
-                    <div>9:00 AM- 6:00 PM</div>
+                    <div>{t("All days")}</div>
+                    <div>{t("9:00 AM")}- {t("6:00 PM")}</div>
                   </div>
                 </div>
               </div>
               <form onSubmit={handleSubmit(onSubmit)} className="ms-auto">
                 <div className="counter">
-                  <span>No.of tickets</span>
+                  <span>{t("No.of tickets")}</span>
                   <div className="buttons rounded-2xl   flex items-center justify-between p-2  bg-slate-100">
                     <button
                       type="button"
@@ -277,10 +279,10 @@ const {data}= useSelector((state:any)=>state.authReducer);
                   </div>
                 </div>
                 <p className="mt-2 font-semibold text-main">
-                  Total Price: {Number(Modified?.ticketPrice) * count}{" "}
+                 {t("Total Price")}: {Number(Modified?.ticketPrice) * count}{" "}
                 </p>
                 <div className="dateAndTimePicker">
-                  <p className="mt-2">Select date of your visit</p>
+                  <p className="mt-2">{t("Select date of your visit")}</p>
                   <div className="Data-Time flex items-center my-2">
                     <input
                       {...register("date", { required: "Date is required" })}
@@ -309,7 +311,7 @@ const {data}= useSelector((state:any)=>state.authReducer);
                     ) : (
                       <>
                         <GiConfirmed className="mx-1 text-xl" />
-                        Pay now
+                        {t("Pay now")}
                       </>
                     )}
                   </button>
@@ -323,7 +325,7 @@ const {data}= useSelector((state:any)=>state.authReducer);
               className=" bg-green-800 px-8 my-2 py-1 rounded-3xl text-gray-50 flex items-center justify-center"
             >
               <GrFormPrevious />
-              Prev
+            {t("Prev")}
             </button>
           </div>
         </div>

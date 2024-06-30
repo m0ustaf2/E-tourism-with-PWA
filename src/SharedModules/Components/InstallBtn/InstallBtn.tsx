@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { GrInstallOption } from "react-icons/gr";
 interface Navigator {
   standalone?: boolean;
 }
 export default function InstallBtn() {
+  const { t, i18n } = useTranslation();
+
   const [deferredPrompt, setDeferredPrompt] = useState<Event | null>(null);
   const [isInstallable, setIsInstallable] = useState(false);
 
@@ -71,7 +74,8 @@ export default function InstallBtn() {
         onClick={handleInstallClick}
         className="overflow-hidden animate-bounce hover:animate-none relative w-32 p-2 h-12 bg-blue-500 text-white border-none rounded-full text-xl font-bold cursor-pointer flex justify-center items-center  z-10 group"
       >
-        Install
+        {t("Install")}
+        
         <GrInstallOption className="mx-1" />
         <span className="absolute w-36 h-32 -top-8 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left" />
         <span className="absolute w-36 h-32 -top-8 -left-2 bg-purple-400 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left" />

@@ -12,6 +12,7 @@ import { Stepper } from "react-form-stepper";
 import TicketCard from "../SharedModules/Components/TicketCard/TicketCard";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import Loading from "../SharedModules/Components/Loading/Loading";
+import { useTranslation } from "react-i18next";
 
 interface TokenData {
   orderId: string;
@@ -20,6 +21,8 @@ interface TokenData {
 }
 
 export default function ValidateTicket() {
+  const { t, i18n } = useTranslation();
+
   const { token } = useParams();
   const tokenData: TokenData = jwtDecode(String(token));
   const [ticket, setTicket] = useState<any>();
@@ -174,7 +177,7 @@ export default function ValidateTicket() {
                     onClick={handleNextStep}
                     className=" bg-green-800 px-8 my-2 py-1 rounded-3xl text-gray-50 flex items-center justify-center"
                   >
-                    Next
+                    {t("Next")}
                     <GrFormNext />
                   </button>
                 ) : (
@@ -188,7 +191,7 @@ export default function ValidateTicket() {
         ) : activeStep == 1 ? (
           <div className="px-5">
             <p className="text-4xl flex justify-center items-center">
-              Face Matching <MdVerified className="text-green-500" />
+              {t("Face Matching")} <MdVerified className="text-green-500" />
             </p>
             <div>
               {imageSrc ? (
@@ -212,7 +215,7 @@ export default function ValidateTicket() {
                       {isLoading == true ? (
                         <ImSpinner9 className="animate-spin" />
                       ) : (
-                        <>Send Photo</>
+                        <>{t("Send Photo")}</>
                       )}
                     </button>
                   </div>
@@ -225,7 +228,7 @@ export default function ValidateTicket() {
                           "bg-main text-white px-5 py-2 mx-1  my-2 rounded-xl"
                         }
                       >
-                        Capture another one?
+                        {t("Capture another one")}?
                       </button>
                     </div>
                   )}
@@ -236,7 +239,7 @@ export default function ValidateTicket() {
                         className=" bg-green-800 px-8 my-2 py-1 rounded-3xl text-gray-50 flex items-center justify-center"
                       >
                         <GrFormPrevious />
-                        Prev
+                        {t("Prev")}
                       </button>
                     </div>
 
@@ -247,7 +250,7 @@ export default function ValidateTicket() {
                           onClick={handleNextStep}
                           className="bg-green-800 px-8 my-2 py-1 rounded-3xl text-gray-50 flex items-center justify-center"
                         >
-                          Next
+                          {t("Next")}
                           <GrFormNext />
                         </button>
                       ) : (
@@ -272,7 +275,7 @@ export default function ValidateTicket() {
                   </div>
                   <div className="flex items-center justify-center">
                     <p className="text-slate-500">
-                      Click capture photo button then click on the send button
+                      {t("Click capture photo button then click on the send button")}
                     </p>
                   </div>
                   <div className="flex justify-center items-center">
@@ -280,7 +283,7 @@ export default function ValidateTicket() {
                       className="bg-main text-white px-5 py-2 mx-1  my-2 rounded-xl"
                       onClick={capturePhoto}
                     >
-                      Capture Photo
+                     {t("Capture Photo")}
                     </button>
                   </div>
                   <div className="flex justify-between items-center">
@@ -290,7 +293,7 @@ export default function ValidateTicket() {
                         className=" bg-green-800 px-8 my-2 py-1 rounded-3xl text-gray-50 flex items-center justify-center"
                       >
                         <GrFormPrevious />
-                        Prev
+                        {t("Prev")}
                       </button>
                     </div>
                   </div>

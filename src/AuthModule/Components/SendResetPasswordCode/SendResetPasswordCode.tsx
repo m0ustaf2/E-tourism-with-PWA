@@ -4,12 +4,15 @@ import Button from "../../../SharedModules/Components/Button/Button";
 import ErrorMessage from "../../../SharedModules/Components/ErrorMessage/ErrorMessage";
 import Input from "../../../SharedModules/Components/Input/Input";
 import postDataHock from "../../../Utls/HockForPostData";
+import { useTranslation } from "react-i18next";
 
 interface data{
   email:string
 }
 
 export default function SendResetPasswordCode() {
+  const { t, i18n } = useTranslation();
+
 const {postData,isLoading}=postDataHock();
   const {
     register,
@@ -29,7 +32,7 @@ const {postData,isLoading}=postDataHock();
         <div className="w-[100%] flex items-center justify-center">
 
           <form onSubmit={handleSubmit(onSubmit)} className="w-5/6 lg:w-3/4">
-            <h2 className="text-2xl my-3 font-semibold">Forget password</h2>
+            <h2 className="text-2xl my-3 font-semibold">{t("Forget password")}</h2>
             <div className="email-input  flex items-center ">
               <div className="w-[98%]">
               <Input

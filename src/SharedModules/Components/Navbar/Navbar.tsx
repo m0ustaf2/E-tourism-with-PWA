@@ -102,19 +102,19 @@ export default function Navbar() {
               {data?.role=="User"? (
                 <Link to={`/home/profile`} className="text-main text-sm sm:text-xs md:text-lg font-medium">
                   {t("Welcome")}
-                  <span className="text-main">{`, ${data?.firstName} ${data?.lastName}`}</span>
+                  <span className="text-main">{`, ${data?.firstName.toUpperCase()}`}</span>
                 </Link>
               ) :
               data?.role=="Admin"?
               <Link to={`/dashboard/profile`} className="text-main text-sm sm:text-xs md:text-lg font-medium">
               {t("Welcome")}
-              <span className="text-main">{`, ${data?.firstName} ${data?.lastName}`}</span>
+              <span className="text-main">{`, ${data?.firstName.toUpperCase()}`}</span>
             </Link>
               :
               data?.role=="Inspector"?
               <Link to={`/inspector/profile`} className="text-main text-sm sm:text-xs md:text-lg font-medium">
               {t("Welcome")}
-              <span className="text-main">{`, ${data?.firstName} ${data?.lastName}`}</span>
+              <span className="text-main">{`, ${data?.firstName.toUpperCase()}`}</span>
             </Link>:
               (
                 <>

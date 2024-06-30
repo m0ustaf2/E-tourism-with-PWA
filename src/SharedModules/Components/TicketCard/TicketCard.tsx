@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 
 interface Ticket {
@@ -22,6 +23,8 @@ interface Ticket {
 }
 
 export default function TicketCard({ ticket, cancelTicket }: Ticket) {
+  const { t, i18n } = useTranslation();
+
   const { data } = useSelector((state: any) => state.authReducer);
   const [isCancel, setIsCancel] = useState(false);
 
@@ -47,7 +50,7 @@ export default function TicketCard({ ticket, cancelTicket }: Ticket) {
             <h2 className="text-lg font-bold text-main">{`${ticket?.userId?.firstName} ${ticket?.userId?.lastName}`}</h2>
             <div className="flow-root">
               <p className="text-main text-sm">
-                <strong>Country: </strong>
+                <strong>{t("Country")}: </strong>
                 {`${ticket?.userId?.country}`}
               </p>
             </div>
@@ -75,7 +78,7 @@ export default function TicketCard({ ticket, cancelTicket }: Ticket) {
                       strokeLinecap="round"
                     />
                   </svg>
-                  Cancel
+                  {t("Cancel")}
                 </button>
               </div>
             ) : (
@@ -101,13 +104,13 @@ export default function TicketCard({ ticket, cancelTicket }: Ticket) {
                       strokeLinecap="round"
                     />
                   </svg>
-                  Cancel
+                  {t("Cancel")}
                 </button>
               </div>
             )
           ) : (
             <div className="flex justify-between items-center">
-              <span className="text-main">Are You Sure?</span>
+              <span className="text-main">{t("Are You Sure")}?</span>
               <button
                 onClick={cancelTicket}
                 className="inline-flex items-center px-4 py-2 bg-red-600 transition ease-in-out delay-75 hover:bg-red-700 text-white text-sm font-medium rounded-md hover:-translate-y-1 hover:scale-110"
@@ -126,7 +129,7 @@ export default function TicketCard({ ticket, cancelTicket }: Ticket) {
                     strokeLinecap="round"
                   />
                 </svg>
-                Yes
+                {t("Yes")}
               </button>
 
               <button
@@ -135,7 +138,7 @@ export default function TicketCard({ ticket, cancelTicket }: Ticket) {
                 }}
                 className="inline-flex items-center ml-1 px-8 py-2 bg-green-600 transition ease-in-out delay-75 hover:bg-green-700 text-white text-sm font-medium rounded-md hover:-translate-y-1 hover:scale-110"
               >
-                No
+                {t("No")}
               </button>
             </div>
           )}
@@ -147,15 +150,15 @@ export default function TicketCard({ ticket, cancelTicket }: Ticket) {
           <p className="font-bold text-main ">{`${ticket?.touristDestination?.name}`}</p>
           <div className="text-main text-sm my-1">
             <p>
-              <strong>Ticket Status: </strong>
+              <strong>{t("Ticket Status")}: </strong>
               {`${ticket?.status}`}
             </p>
             <p>
-              <strong>No of Tickets: </strong>
+              <strong>{t("No of Tickets")}: </strong>
               {`${ticket?.touristDestination?.quantity}`}
             </p>
             <p>
-              <strong>Day of Visit: </strong>
+              <strong>{t("Day of Visit")}: </strong>
               {ticket?.DateOfVisit?.split("T")[0]}
             </p>
           </div>

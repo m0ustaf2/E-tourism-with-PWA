@@ -17,6 +17,7 @@ import Input from "../../../SharedModules/Components/Input/Input";
 import Passsword from "../../../SharedModules/Components/Password/Passsword";
 import postDataHock from "../../../Utls/HockForPostData";
 import { ImSpinner9 } from "react-icons/im";
+import { useTranslation } from "react-i18next";
 
 interface UserCredentials {
   email?: string;
@@ -50,6 +51,8 @@ interface FormDataObject {
 }
 
 export default function Register() {
+  const { t, i18n } = useTranslation();
+
   const { postData, isLoading } = postDataHock();
   const {
     register: firstFormRegister,
@@ -116,7 +119,7 @@ export default function Register() {
   return (
     <div className="h-screen text-white flex items-center justify-center">
       <div className="w-full ">
-        <h2 className="text-2xl my-3 font-semibold text-center">Register</h2>
+        <h2 className="text-2xl my-3 font-semibold text-center">{t("Register")}</h2>
         <Stepper steps={steps} activeStep={activeStep} />
         <div className="w-[100%] flex items-center justify-center">
           <form onSubmit={handleSubmit(onSubmit)} className="w-5/6 lg:w-3/4">
@@ -291,7 +294,7 @@ export default function Register() {
                     }`}
                   >
                     <p className="flex items-center justify-center">
-                      Next <MdNavigateNext />
+                      {t("Next")} <MdNavigateNext />
                     </p>
                   </button>
                 </div>
@@ -338,7 +341,7 @@ export default function Register() {
                   <div className="flex-auto">
                     <div className="flex items-center">
                       <label className="py-4 ms-2 text-lg font-medium text-gray-50">
-                        <p>Gender </p>
+                        <p>{t("Gender")} </p>
                       </label>
                       <div className="flex">
                         <div className="flex items-center ps-4 border-b-2 mx-8 border-gray-200 rounded dark:border-gray-700">
@@ -354,7 +357,7 @@ export default function Register() {
                             htmlFor="bordered-radio-1"
                             className="w-full py-4 ms-2  font-medium text-gray-50 pr-5"
                           >
-                            Female
+                            {t("Female")}
                           </label>
                         </div>
                         <div className="flex items-center ps-4 border-b-2 border-gray-200 rounded dark:border-gray-700">
@@ -370,7 +373,7 @@ export default function Register() {
                             htmlFor="bordered-radio-2"
                             className="w-full py-4 ms-2  font-medium text-gray-50 pr-5"
                           >
-                            Male
+                            {t("Male")}
                           </label>
                         </div>
                       </div>
@@ -392,7 +395,7 @@ export default function Register() {
                           <span className="text-lg mr-2">
                             <CgProfile />
                           </span>
-                          Profile Image
+                        {t("Profile Image")}
                         </span>
                       </label>
                       <input
@@ -417,7 +420,7 @@ export default function Register() {
                   >
                     <p className="flex items-center justify-center">
                       <GrFormPrevious />
-                      Prev
+                      {t("Prev")}
                     </p>
                   </button>
                 </div>
@@ -438,9 +441,9 @@ export default function Register() {
 
             <div className="flex justify-between">
               <p>
-                have an account ?
+                {t("have an account ?")}
                 <Link to={"/auth/login"}>
-                  <span className="underline mx-2">Log in Now</span>
+                  <span className="underline mx-2">{t("Log in Now")}</span>
                 </Link>
               </p>
             </div>

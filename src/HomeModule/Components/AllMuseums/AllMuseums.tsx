@@ -6,8 +6,11 @@ import Card from "../../../SharedModules/Components/Card/Card";
 import Loading from "../../../SharedModules/Components/Loading/Loading";
 import Navbar from "../../../SharedModules/Components/Navbar/Navbar";
 import { baseUrl } from "../../../Utls/BaseUrl";
+import { useTranslation } from "react-i18next";
 
 export default function AllMuseums() {
+  const { t, i18n } = useTranslation();
+
   const [destinations, setDestinations] = useState([]);
   const { cities } = useSelector((state: any) => state.CitiesReducer);
   let { cityId } = useParams();
@@ -52,13 +55,13 @@ export default function AllMuseums() {
           <div className="flex justify-center">
             <div className="w-full flex justify-center">
               <label
-                className=" p-2 rounded-l-lg border-y-2 border-l-2 border-main  font-medium"
+                className=" p-2 rounded-lg border-y-2 border-l-2 border-main  font-medium"
                 htmlFor="citty"
               >
-                Select The City:
+               {t("Select The City")}:
               </label>
               <select
-                className="w-[50%] bg-transparent rounded-r-lg border-main  border-y-2 border-r-2"
+                className="w-[50%] bg-transparent rounded-lg border-main  border-y-2 border-r-2"
                 onChange={getCityValue}
                 name="cities"
                 id="citty"

@@ -6,7 +6,10 @@ import { baseUrl } from "../Utls/BaseUrl";
 import TicketCard from "../SharedModules/Components/TicketCard/TicketCard";
 import Loading from "../SharedModules/Components/Loading/Loading";
 import NoData from "../SharedModules/Components/NoData/NoData";
+import { useTranslation } from "react-i18next";
 export default function InspectorHome() {
+  const { t, i18n } = useTranslation();
+
   const [tickets, setTickets] = useState([]);
   const [checked, setIsChecked] = useState();
   const { headers } = useSelector((state: any) => state.authReducer);
@@ -51,7 +54,7 @@ export default function InspectorHome() {
                after:items-center  peer-hover:after:scale-75 peer-checked:after:content-['✔️'] 
                after:-rotate-180 peer-checked:after:rotate-0"></div>
             <p className="font-medium text-lg text-main ms-2">
-              Filter Tickets By Current Day
+             {t("Filter Tickets By Current Day")}
             </p>
           </label>
         </div>

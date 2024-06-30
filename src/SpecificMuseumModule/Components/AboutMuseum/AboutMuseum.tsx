@@ -61,6 +61,8 @@ export default function AboutMuseum() {
   const handleClose = () => setModalState("close");
   const [isLoading, setIsLoading] = useState(false);
   const { headers, data } = useSelector((state: any) => state.authReducer);
+  console.log(data);
+  
   const {
     register,
     handleSubmit,
@@ -267,7 +269,7 @@ export default function AboutMuseum() {
                   <div className="btn flex justify-end items-center mt-3">
                     <div className="">
                     
-                    {data?.id ? <button
+                    {data?.role=="User" ? <button
                         onClick={showAddModal}
                         className="px-3 font-bold rounded-full bg-main border-main hover:text-main duration-700 border-2 text-white hover:bg-transparent"
                       >
@@ -287,7 +289,7 @@ export default function AboutMuseum() {
                         onClick={isSpeaking ? handlePause : handleSpeak}
                         className="px-3 font-bold rounded-full bg-main border-main hover:text-main duration-700 border-2 text-white hover:bg-transparent"
                       >
-                        {!isSpeaking ? "Speak" : "Pause"}
+                        {!isSpeaking ? `${t("Speak")}` : `${t("Pause")}`}
                       </button>
                     </div>
                   </div>

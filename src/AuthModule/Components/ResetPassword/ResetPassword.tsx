@@ -5,8 +5,11 @@ import Passsword from "../../../SharedModules/Components/Password/Passsword";
 import { useForm } from "react-hook-form";
 import ErrorMessage from "../../../SharedModules/Components/ErrorMessage/ErrorMessage";
 import postDataHock from "../../../Utls/HockForPostData";
+import { useTranslation } from "react-i18next";
 
 export default function ResetPassword() {
+  const { t, i18n } = useTranslation();
+
   const {postData,isLoading}=postDataHock();
 
   const {
@@ -25,7 +28,7 @@ export default function ResetPassword() {
         <div className="w-[100%] flex items-center justify-center">
 
           <form onSubmit={handleSubmit(onSubmit)} className="w-5/6 lg:w-3/4">
-            <h2 className="text-2xl my-3 font-semibold">Reset password</h2>
+            <h2 className="text-2xl my-3 font-semibold">{t("Reset password")}</h2>
             <div className="email-input  flex items-center ">
               <div className="w-[98%]">
                 <Input

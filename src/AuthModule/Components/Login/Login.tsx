@@ -7,11 +7,14 @@ import Passsword from "../../../SharedModules/Components/Password/Passsword";
 import ErrorMessage from "../../../SharedModules/Components/ErrorMessage/ErrorMessage";
 import postDataHock from "../../../Utls/HockForPostData";
 import { ImSpinner9 } from "react-icons/im";
+import { useTranslation } from "react-i18next";
 interface LoginData {
   email: string;
   password: string;
 }
 export default function Login() {
+  const { t, i18n } = useTranslation();
+
   const { isLoading, postData } = postDataHock();
   const {
     register,
@@ -28,7 +31,7 @@ export default function Login() {
       <div className="w-full ">
         <div className="w-[100%] flex items-center justify-center">
           <form onSubmit={handleSubmit(onSubmit)} className="w-5/6 lg:w-3/4">
-            <h2 className="text-2xl my-3 font-semibold">Log in</h2>
+            <h2 className="text-2xl my-3 font-semibold">{t("Log in")}</h2>
 
             <div className="email-input flex items-center mt-8">
               <div className="w-[98%]">
@@ -86,14 +89,14 @@ export default function Login() {
 
             <div className="flex justify-between">
               <p>
-                Don't have an account ?
+               {t("Don't have an account ?")}
                 <Link to={"/auth/register"}>
-                  <span className="underline mx-2">Register Now</span>
+                  <span className="underline mx-2">{t("Register Now")}</span>
                 </Link>
               </p>
               <p>
                 <Link to={"/auth/send-code"}>
-                  <span className="underline mx-2">Forget Password?</span>
+                  <span className="underline mx-2">{t("Forget Password?")}</span>
                 </Link>
               </p>
             </div>

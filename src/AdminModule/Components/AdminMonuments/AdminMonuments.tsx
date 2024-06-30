@@ -412,7 +412,7 @@ export default function AdminMonuments() {
                   htmlFor="video"
                   className="block mb-2 text-sm font-medium text-main"
                 >
-                  Video
+                {t("Video")}
                 </label>
                 <div className="flex items-center">
                   <div className="flex-auto mx-1">
@@ -619,7 +619,7 @@ export default function AdminMonuments() {
                 htmlFor="video"
                 className="block mb-2 text-sm font-medium text-main"
               >
-                Video
+             {t("Video")}
               </label>
               <div className="flex items-center">
                 <div className="flex-auto mx-1">

@@ -12,7 +12,7 @@ export default function Header() {
             <div className='lg:col-span-2  flex items-center'>
               <div>
               <h3 className='text-white text-2xl font-medium'>
-                {t("Welcome")} <span className='text-slate-500'>{`, ${data?.firstName} ${data?.lastName}`}</span>
+                {t("Welcome")} <span className='text-slate-500'>{`, ${data?.firstName.toUpperCase()} ${data?.lastName.toUpperCase()}`}</span>
                 </h3>
               <p className='text-white'>
                 {t("This is a welcoming screen for the entry of the application , you can now see the options")}
