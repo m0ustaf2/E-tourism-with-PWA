@@ -122,7 +122,8 @@ export default function Museums() {
                         to={`museums/${city?.id}`}
                         className="text-5xl group overflow-hidden h-full w-full text-center flex items-center mx-8"
                       >
-                        {city?.name}
+                        
+                        {city?.name.toUpperCase()}
                       </Link>
                     </div>
                   </div>
